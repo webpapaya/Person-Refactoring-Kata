@@ -54,4 +54,12 @@ internal class PersonTest {
         val person = Person(role, swedishPersonalNumber, "0123456")
         assertEquals("", person.countryCode())
     }
+
+
+    @Test
+    fun checkRole() {
+        assertThrows(IllegalArgumentException::class.java) {
+            Person(4, swedishPersonalNumber, "0123456")
+        }
+    }
 }
