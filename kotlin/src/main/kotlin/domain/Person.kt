@@ -1,4 +1,4 @@
-package sammancoaching
+package domain
 
 import java.time.Year
 

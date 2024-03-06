@@ -1,11 +1,11 @@
+package domain
+
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
-import sammancoaching.Person
-import sammancoaching.Person.Role
 
 internal class PersonTest {
     private val swedishPersonalNumber = "19511111-7668"
-    private val role = Role.MANAGER
+    private val role = Person.Role.MANAGER
     private val phoneNumber = "00467123456"
 
     @Test
@@ -28,19 +28,19 @@ internal class PersonTest {
 
     @Test
     fun adminCanDeleteUsers() {
-        val person = Person.createFromSwedishPersonalNumber(Role.ADMIN, swedishPersonalNumber, phoneNumber)
+        val person = Person.createFromSwedishPersonalNumber(Person.Role.ADMIN, swedishPersonalNumber, phoneNumber)
         assertTrue(person.canDeleteUsers())
     }
 
     @Test
     fun salesCantDeleteUsers() {
-        val person = Person.createFromSwedishPersonalNumber(Role.SALES, swedishPersonalNumber, phoneNumber)
+        val person = Person.createFromSwedishPersonalNumber(Person.Role.SALES, swedishPersonalNumber, phoneNumber)
         assertFalse(person.canDeleteUsers())
     }
 
     @Test
     fun engineersCantDeleteUsers() {
-        val person = Person.createFromSwedishPersonalNumber(Role.ENGINEER, swedishPersonalNumber, phoneNumber)
+        val person = Person.createFromSwedishPersonalNumber(Person.Role.ENGINEER, swedishPersonalNumber, phoneNumber)
         assertFalse(person.canDeleteUsers())
     }
 
